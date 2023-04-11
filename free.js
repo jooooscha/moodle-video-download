@@ -1,7 +1,7 @@
 if (window.location.host === 'engage.streaming.rwth-aachen.de') {
-  let a = window.location.href.startsWith('https://engage.streaming.rwth-aachen.de/paella/ui/watch.html')
-  let b = window.location.href.startsWith('https://engage.streaming.rwth-aachen.de//paella/ui/watch.html')
-  if (!a and !b)
+  let a = window.location.href.startsWith('https://engage.streaming.rwth-aachen.de/paella/ui/watch.html');
+  let b = window.location.href.startsWith('https://engage.streaming.rwth-aachen.de//paella/ui/watch.html');
+  if (!a && !b)
     console.warn('looks like we are running outside a player context‽')
 
   const inFrame = (window.parent !== window)
