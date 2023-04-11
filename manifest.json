@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "OpenExcellenceMedia",
-  "version": "0.0.3",
+  "name": "MoodleDownload",
+  "version": "0.1.0",
   "description": "Adds download links to videos on RWTH moodle which are served using an OpenCast iframe.",
   "homepage_url": "https://git.fsmpi.rwth-aachen.de/moodleOpenCastDownloads/ff-ext",
   "icons": {
@@ -15,14 +15,14 @@
   "content_scripts": [
     {
       "all_frames": true,
-      "matches": ["https://moodle.rwth-aachen.de/*", "https://engage.streaming.rwth-aachen.de/paella/ui/*"],
+      "matches": [ "https://moodle.rwth-aachen.de/*", "https://engage.streaming.rwth-aachen.de/paella/ui/*", "https://engage.streaming.rwth-aachen.de//paella/ui/*" ],
       "js": ["free.js"],
       "css": ["free.css"]
     }
   ],
   "browser_specific_settings": {
     "gecko": {
-        "id": "{ad4c20e4-957a-45ff-a48e-a5497ccd59d5}",
+        "id": "moodledownload@plugin",
         "strict_min_version": "60.0",
         "update_url": "https://dev.sudo42.de/public/ff-addons/updates.json"
     }
