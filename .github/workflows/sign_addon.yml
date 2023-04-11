@@ -1,4 +1,4 @@
-name: "Build and sign Kitingkeys"
+name: "Build and sign"
 on:
   push:
     tags:
