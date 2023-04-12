@@ -1,7 +1,7 @@
 
 ._ext-openExcellenceMedia_container,
 .openExcellenceMediaPlugin {
-  --c-rwth-violett: rgb(97,33,88);
+  --c-rwth-violett: rgb(0, 38, 130);
   --c-link-bg: var(--c-rwth-violett);
   --c-link-fg: #fff;
 }
