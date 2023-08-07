@@ -1,12 +1,14 @@
-if (window.location.host === 'engage.streaming.rwth-aachen.de') {
+function streaming(url) {
   let a = window.location.href.startsWith('https://engage.streaming.rwth-aachen.de/paella/ui/watch.html');
   let b = window.location.href.startsWith('https://engage.streaming.rwth-aachen.de//paella/ui/watch.html');
-  if (!a && !b)
+  let c = window.location.href.startsWith('https://presentation-temp.streaming.rwth-aachen.de/paella/ui/watch.html');
+  let d = window.location.href.startsWith('https://presentation-temp.streaming.rwth-aachen.de//paella/ui/watch.html');
+  if (!a && !b && !c && !d)
     console.warn('looks like we are running outside a player context‽')
 
   const inFrame = (window.parent !== window)
   const vId = new URLSearchParams(location.search).get('id')
-  fetch(`https://engage.streaming.rwth-aachen.de/search/episode.json?${new URLSearchParams({id:vId}).toString()}`)
+  fetch(`https://${url}/search/episode.json?${new URLSearchParams({id:vId}).toString()}`)
     .then(d=>d.json())
     .then(meta => {
       window._meta = meta
@@ -25,7 +27,9 @@ if (window.location.host === 'engage.streaming.rwth-aachen.de') {
         addLinksToVideoPlayer(videoTracks, meta)
       }
     })
-} else if (window.location.host === 'moodle.rwth-aachen.de') {
+}
+
+function moodle() {
   window.addEventListener('message', msg => {
     // this message is not meant for us
     if (!msg.data || !msg.data.videoTracks) return true;
@@ -205,4 +209,13 @@ function addLinksToVideoPlayer(videoTracks, meta) {
   console.debug('wating for player interface to get ready ...')
   timeoutFn()
 
-}
+};
+
+
+if (window.location.host === 'engage.streaming.rwth-aachen.de') {
+  streaming('engage.streaming.rwth-aachen.de');
+} else if (window.location.host === 'presentation-temp.streaming.rwth-aachen.de') {
+  streaming('presentation-temp.streaming.rwth-aachen.de');
+} else if (window.location.host === 'moodle.rwth-aachen.de') {
+  moodle();
+};

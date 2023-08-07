@@ -15,7 +15,13 @@
   "content_scripts": [
     {
       "all_frames": true,
-      "matches": [ "https://moodle.rwth-aachen.de/*", "https://engage.streaming.rwth-aachen.de/paella/ui/*", "https://engage.streaming.rwth-aachen.de//paella/ui/*" ],
+      "matches": [
+        "https://moodle.rwth-aachen.de/*",
+        "https://engage.streaming.rwth-aachen.de/paella/ui/*",
+        "https://engage.streaming.rwth-aachen.de//paella/ui/*",
+        "https://presentation-temp.streaming.rwth-aachen.de/paella/ui/*",
+        "https://presentation-temp.streaming.rwth-aachen.de//paella/ui/*"
+      ],
       "js": ["free.js"],
       "css": ["free.css"]
     }
